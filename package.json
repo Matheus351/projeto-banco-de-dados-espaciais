@@ -1,0 +1,28 @@
+{
+  "name": "projeto-banco-de-dados-espaciais",
+  "version": "1.0.0",
+  "description": "Nesse projeto foi desenvolvido uma aplicação web que permite trabalharmos com dados espaciais.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Matheus351@github.com/Matheus351/projeto-banco-de-dados-espaciais.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matheus351/projeto-banco-de-dados-espaciais/issues"
+  },
+  "homepage": "https://github.com/Matheus351/projeto-banco-de-dados-espaciais#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

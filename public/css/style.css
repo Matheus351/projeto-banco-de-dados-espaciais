@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+ background: linear-gradient(to top, #1CB5E0, #000046); 
+ height:100vh;
+ font-family: Roboto, Arial, sans-serif;
+}
