@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,51 @@
     <title>Projeto Banco de dados</title>
 </head>
 <body>
-   
+    <div class="form" id="form">
+        <form class="formulario" method="post">
+            <p>Preencha os campos</p>
+
+            <div class="field">
+                <label for="nome">Seu nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome*" required>
+            </div>
+
+            <div class="field">
+                <label for="telefone">Seu telefone</label>
+                <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone">
+            </div>
+
+            <div class="field">
+                <label for="email">Seu email</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu E-Mail*" required>
+            </div>
+
+            <div class="field">
+                <label for="ruas">Escolha a rua:</label>
+                <input type="text" list="ruas" name="rua" id="rua" placeholder="Informe a rua*" required>
+
+                <datalist id="ruas">
+                    <option value="Desembargador Boto">
+                    <option value="Profeta João Alves">
+                    <option value="Aprígio Bezerra">
+                    <option value="Epifaneo Sobreira">
+                    <option value="Fausto Rolim">
+                    <option value="Francisco Aprígio Nogueira">
+                    <option value="Francisco Fernandes">
+                    <option value="Higino Rolim">
+                    <option value="Juvêncio Carneiro">
+                    <option value="Vicente Bezerra">
+                </datalist>
+            </div>
+
+            <div class="field">
+                <label for="comentario">Deixe o seu comentário:</label>
+                <textarea name="comentario" id="comentario" placeholder="Comentário*" required></textarea>
+            </div>
+
+            <input type="submit" name="acao" value="Enviar">
+        </form>
+    </div>
+    
 </body>
 </html>
