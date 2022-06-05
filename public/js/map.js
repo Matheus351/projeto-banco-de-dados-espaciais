@@ -1,9 +1,10 @@
 
 // Basemap layer
 let basemaplayer = new ol.layer.Tile({
-  source: new ol.source.Stamen({
-    layer:'terrain'
-  })
+  //source: new ol.source.Stamen({
+  //  layer:'terrain'
+  //})
+  source: new ol.source.OSM()
 })
 
 
@@ -12,8 +13,8 @@ let arraylayers = [basemaplayer]
 
 // View
 let view = new ol.View({
-  center: [-550274338562.4893, -776453.2108397011],
-  zoom: 8
+  center: [-550274346378.3019, -768631.7673850602],
+  zoom: 14
 })
 
 let map = new ol.Map({
