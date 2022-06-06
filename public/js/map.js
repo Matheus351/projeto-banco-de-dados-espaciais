@@ -1,60 +1,40 @@
+let map;
 
-// Basemap layer
-let basemaplayer = new ol.layer.Tile({
-  //source: new ol.source.Stamen({
-  //  layer:'terrain'
-  //})
-  source: new ol.source.OSM()
-})
+let centro = { lat: -6.892, lng: -38.558 }
 
+let marker;
+let info;
 
-// Array de layers
-let arraylayers = [basemaplayer]
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: centro,
+    zoom: 14,
+    zoomControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
 
-// View
-let view = new ol.View({
-  center: [-550274346378.3019, -768631.7673850602],
-  zoom: 14
-})
+  marker = new google.maps.Marker({
+    position: centro,
+    map,
+    title: "Hello world!",
+    draggable: true,
+    animation: google.maps.Animation.BOUNCE //use DROP or BOUNCE
+  });
 
-let map = new ol.Map({
-    target: 'map',
-    layers: arraylayers,
-    view: view
-});
+  marker.addListener("dblclick", ()=>{
+    info = new google.maps.InfoWindow({
+      content: ""+marker.getPosition(),
+    }).open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
 
+  map.addListener("click", (evt)=>{
+    marker.setPosition(evt.latLng);
+  });
 
-// Definindo um  source
-let drawSource = new ol.source.Vector()
-
-// Definindo um layer
-let drawLayer = new ol.layer.Vector({
-    source:drawSource
-})
-// Adicionando no mapa
-map.addLayer(drawLayer)
-
-
-// Initiate a draw interaction
-let draw = new ol.interaction.Draw({
-  type : 'Point',
-  source:drawSource
-})
-
-
-draw.on('drawstart', function(evt){
-  drawSource.clear()
-})
-draw.on('drawend',function(evt){
-  // alert('point is added')
-  console.log('clicou em:', evt.feature.getGeometry().getFlatCoordinates()    )
-  map.removeInteraction(draw)
-})
-
-
-// Function that enables draw interaction
-
-function startDrawing(){
-  //add interaction to the map
-  map.addInteraction(draw)
 }
+
+window.initMap = initMap;
