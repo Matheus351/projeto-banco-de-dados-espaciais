@@ -1,7 +1,6 @@
+
 let map;
-
-let centro = { lat: -6.892, lng: -38.558 }
-
+let centro = { lat: -6.891900888522654, lng: -38.54913574095965 }
 let marker;
 let info;
 
@@ -11,14 +10,14 @@ function initMap() {
     zoom: 14,
     zoomControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
+  })
+
 
   marker = new google.maps.Marker({
     position: centro,
     map,
-    title: "Hello world!",
     draggable: true,
-    animation: google.maps.Animation.BOUNCE //use DROP or BOUNCE
+    animation: google.maps.Animation.BOUNCE 
   });
 
   marker.addListener("dblclick", ()=>{
@@ -33,8 +32,10 @@ function initMap() {
 
   map.addListener("click", (evt)=>{
     marker.setPosition(evt.latLng);
+    console.log(evt.latLng)
   });
 
 }
 
 window.initMap = initMap;
+

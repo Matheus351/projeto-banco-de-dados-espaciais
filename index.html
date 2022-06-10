@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet"  href="/css/style.css">
-    <link rel="FaviconIcon" href="./favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <title>Projeto Banco de dados</title>
 </head>
-<body>
+<body onload="setNomeRua()">
 
     <div class="form" id="form">
-        <form class="formulario" method="post" action="/map">
-            <p>Preencha os campos</p>
+        <form class="formulario" method="post" action="/save">
+            <p> </option>Preencha os campos</p>
 
             <div class="field">
                 <label for="nome">Seu nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome*" required>
-            </div>
+            </div> 
 
             <div class="field">
                 <label for="telefone">Seu telefone</label>
@@ -31,31 +30,53 @@
             </div>
 
             <div class="field">
-                <label for="ruas">Escolha a rua:</label>
-                <input type="text" list="ruas" name="rua" id="rua" placeholder="Informe a rua*" required>
+                <label for="ruas">Rua do ocorrido:</label>
+                <!-- <input type="text" list="ruas" name="rua" id="rua" placeholder="Informe a rua*" required>  -->
 
-                <datalist id="ruas">
-                    <option value="Desembargador Boto">
-                    <option value="Profeta João Alves">
-                    <option value="Aprígio Bezerra">
-                    <option value="Epifaneo Sobreira">
-                    <option value="Fausto Rolim">
-                    <option value="Francisco Aprígio Nogueira">
-                    <option value="Francisco Fernandes">
-                    <option value="Higino Rolim">
-                    <option value="Juvêncio Carneiro">
-                    <option value="Vicente Bezerra">
-                </datalist>
-            </div>
+                <select id="ruas" name="coordenada" style="margin-left: 10px;"> 
+                    <option value="-6.891900888522654, -38.54913574095965">Desembargador Boto</option>
+                    <option value="-6.892113620205174, -38.56459657458041">Profeta João Alves</option>
+                    <option value="-6.8933603618153025, -38.55959355923902">Aprígio Bezerra</option>
+                    <option value="-6.88803746986332, -38.562474945745045">Epifaneo Sobreira</option>
+                    <option value="-6.893311315611981, -38.565175888074265">Fausto Rolim</option>
+                    <option value="-6.895331159445445, -38.54757132308533">Francisco Fernandes</option>
+                    <option value="-6.8869308123198, -38.56275723409831">Higino Rolim</option>
+                    <option value="-6.88780226976843, -38.55912167458035">Juvêncio Carneiro</option>
+                    <option value="-6.892795020495633, -38.55988736108628">Vicente Bezerra</option>
+                </select>
+          
+               
+                <div class="field">
+                    <!-- <label for="nome">Nome da rua:</label> -->
+                    <input type="text" id="nomeRua" name="nomeDaRua" value="Rua" hidden>
+                </div> 
 
             <div class="field">
                 <label for="comentario">Deixe o seu comentário:</label>
                 <textarea name="comentario" id="comentario" placeholder="Comentário*" required></textarea>
             </div>
 
+
             <input type="submit" value="Enviar">
-        </form>
-    </div>
-    
-</body>
-</html>
+        </form> 
+    </div> 
+    <script>
+  
+        function setNomeRua(){
+            const datalist = document.getElementById('ruas')
+            datalist.addEventListener('change',(event)=>{
+              const coor = event.target.value
+
+              const op = document.getElementById('nomeRua')
+
+              document.querySelectorAll('option').forEach(o=>{
+
+                  o.value==coor ? op.value=o.textContent : op.value
+                  
+              })
+            })
+        }
+
+    </script>
+</body> 
+</html> 
